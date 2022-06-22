@@ -11,22 +11,28 @@ const App = () => {
     console.log(crashlyticsEnable);
   }, [crashlyticsEnable]);
 
+  const buttonStyle = {
+    backgroundColor: '#252526',
+    padding: 16,
+    marginBottom: 16,
+  };
+
   return (
     <View>
       <Text>App</Text>
       <TouchableOpacity
-        style={{backgroundColor: '#252526', padding: 16, marginBottom: 16}}
+        style={buttonStyle}
         onPress={() => crashlytics().crash()}>
         <Text>Force Crash</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
-        style={{backgroundColor: '#252526', padding: 16, marginBottom: 16}}
+        style={buttonStyle}
         onPress={() => {
           setCrashlyticsEnable(!crashlyticsEnable);
           crashlytics().setCrashlyticsCollectionEnabled(!crashlyticsEnable);
         }}>
-        <Text>Crashlytics est :{JSON.stringify(crashlyticsEnable)}</Text>
+        <Text>Crashlytics est : {JSON.stringify(crashlyticsEnable)}</Text>
       </TouchableOpacity>
     </View>
   );
